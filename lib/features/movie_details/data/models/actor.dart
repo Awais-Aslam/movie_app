@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'actor.g.dart';
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Actor {
   final int id;
   final String name;
@@ -19,31 +24,7 @@ class Actor {
     required this.knownForDepartment,
   });
 
-  // Factory constructor to parse JSON data
-  factory Actor.fromJson(Map<String, dynamic> json) {
-    return Actor(
-      id: json['id'],
-      name: json['name'] ?? '',
-      originalName: json['original_name'] ?? '',
-      character: json['character'] ?? '',
-      profilePath: json['profile_path'],
-      gender: json['gender'] ?? 0,
-      popularity: (json['popularity'] as num).toDouble(),
-      knownForDepartment: json['known_for_department'] ?? '',
-    );
-  }
+  factory Actor.fromJson(Map<String, dynamic> json) => _$ActorFromJson(json);
 
-  // Convert Actor object to JSON
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'original_name': originalName,
-      'character': character,
-      'profile_path': profilePath,
-      'gender': gender,
-      'popularity': popularity,
-      'known_for_department': knownForDepartment,
-    };
-  }
+  Map<String, dynamic> toJson() => _$ActorToJson(this);
 }

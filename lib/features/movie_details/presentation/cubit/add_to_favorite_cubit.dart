@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/movie_details/domain/repositories/movie_details_repository.dart';
 
-import '../../data/models/favourite_request.dart';
+import '../../data/models/favorite_request.dart';
 import '../states/add_to_favorite_states.dart';
 
 class AddToFavouriteCubit extends Cubit<AddToFavoriteStates> {

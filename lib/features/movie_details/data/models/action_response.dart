@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'action_response.g.dart';
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class ActionResponse {
   final bool success;
   final int statusCode;
@@ -9,11 +14,6 @@ class ActionResponse {
     required this.statusMessage,
   });
 
-  factory ActionResponse.fromJson(Map<String, dynamic> json) {
-    return ActionResponse(
-      success: json['success'],
-      statusCode: json['status_code'],
-      statusMessage: json['status_message'],
-    );
-  }
+  factory ActionResponse.fromJson(Map<String, dynamic> json) =>
+      _$ActionResponseFromJson(json);
 }

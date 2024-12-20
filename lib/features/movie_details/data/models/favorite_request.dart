@@ -1,18 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'watchlist_request.g.dart';
+part 'favorite_request.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class WatchlistRequest {
+class FavoriteRequest {
   final String mediaType;
   final int mediaId;
-  final bool watchlist;
+  final bool favorite;
 
-  WatchlistRequest({
+  FavoriteRequest({
     required this.mediaType,
     required this.mediaId,
-    required this.watchlist,
+    required this.favorite,
   });
 
-  Map<String, dynamic> toJson() => _$WatchlistRequestToJson(this);
+  Map<String, dynamic> toJson() => _$FavoriteRequestToJson(this);
 }

@@ -1,7 +1,7 @@
 import 'package:movie_app/features/movie_details/data/datasources/movie_details_remote_data_source.dart';
 import 'package:movie_app/features/movie_details/data/models/action_response.dart';
 import 'package:movie_app/features/movie_details/data/models/actor.dart';
-import 'package:movie_app/features/movie_details/data/models/favourite_request.dart';
+import 'package:movie_app/features/movie_details/data/models/favorite_request.dart';
 import 'package:movie_app/features/movie_details/domain/repositories/movie_details_repository.dart';
 
 import '../../../../core/network/exceptions.dart';

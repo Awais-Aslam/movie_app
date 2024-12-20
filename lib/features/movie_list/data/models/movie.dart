@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'movie.g.dart';
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Movie {
   final int id;
   final String title;
@@ -6,7 +11,6 @@ class Movie {
   final String backdropPath;
   final String releaseDate;
   final double voteAverage;
-  // release_date
 
   Movie({
     required this.id,
@@ -18,29 +22,7 @@ class Movie {
     required this.releaseDate,
   });
 
-  // Factory method to create MovieModel from JSON
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
-      id: json['id'],
-      title: json['title'],
-      overview: json['overview'],
-      posterPath: json['poster_path'],
-      backdropPath: json['backdrop_path'],
-      releaseDate: json['release_date'],
-      voteAverage: json['vote_average'].toDouble(),
-    );
-  }
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 
-  // Method to convert MovieModel to JSON
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'overview': overview,
-      'poster_path': posterPath,
-      'backdrop_path': backdropPath,
-      'vote_average': voteAverage,
-      'release_date': releaseDate,
-    };
-  }
+  Map<String, dynamic> toJson() => _$MovieToJson(this);
 }

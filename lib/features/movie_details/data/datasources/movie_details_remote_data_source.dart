@@ -4,7 +4,7 @@ import 'package:movie_app/features/movie_details/data/models/watchlist_request.d
 
 import '../../../../core/network/exceptions.dart';
 import '../../../../core/network/network_service.dart';
-import '../models/favourite_request.dart';
+import '../models/favorite_request.dart';
 
 abstract class MovieDetailsRemoteDataSource {
   Future<List<Actor>> getMovieCredits({required int movieId});

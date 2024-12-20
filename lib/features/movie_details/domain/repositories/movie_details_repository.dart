@@ -1,7 +1,7 @@
 import 'package:movie_app/features/movie_details/data/models/action_response.dart';
 import 'package:movie_app/features/movie_details/data/models/actor.dart';
 
-import '../../data/models/favourite_request.dart';
+import '../../data/models/favorite_request.dart';
 import '../../data/models/watchlist_request.dart';
 
 
