@@ -95,7 +95,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                       final first10Movies =
                           topRatedMoviesList.movies.take(10).toList();
                       isLoading = false;
-                      return ListView.builder(
+                      return ListView.separated(
                         physics: const ScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: first10Movies.length,
@@ -103,6 +103,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                           final movie = first10Movies[index];
                           return DetailedMovieCard(movie: movie);
                         },
+                        separatorBuilder: (_, __) => const SizedBox(height: 8),
                       );
                     },
                     orElse: () => const SizedBox.shrink(),
@@ -115,7 +116,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
               // Watchlist Movies list
               MovieSection(
                 title: Strings.watchlistMovies,
-                builder: (context, state) => const WatchlistMoviesList( ),
+                builder: (context, state) => const WatchlistMoviesList(),
               ),
 
               const SizedBox(height: 20),
@@ -127,7 +128,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                     topRatedMoviesLoaded: (topRatedMoviesList) {
                       final remainingMovies =
                           topRatedMoviesList.movies.skip(10).toList();
-                      return ListView.builder(
+                      return ListView.separated(
                         physics: const ScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: remainingMovies.length,
@@ -135,6 +136,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
                           final movie = remainingMovies[index];
                           return DetailedMovieCard(movie: movie);
                         },
+                        separatorBuilder: (_, __) => const SizedBox(height: 8),
                       );
                     },
                     orElse: () => const SizedBox.shrink(),

@@ -14,11 +14,11 @@ class FavouriteMoviesList extends StatelessWidget {
       builder: (context, state) {
         return state.maybeMap(
           loading: (_) => const Center(child: CircularProgressIndicator()),
-          favoriteMoviesLoaded: (favouriteList) => favouriteList.movies.isEmpty
-              ? const Center(child: Text(Strings.noFavouriteMoviesAvailable))
-              : SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.42,
-                  child: ListView.builder(
+          favoriteMoviesLoaded: (favouriteList) => SizedBox(
+            height: MediaQuery.of(context).size.height * 0.42,
+            child: favouriteList.movies.isEmpty
+                ? const Center(child: Text(Strings.noFavouriteMoviesAvailable))
+                : ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: favouriteList.movies.length,
                     itemBuilder: (context, index) {
@@ -30,7 +30,7 @@ class FavouriteMoviesList extends StatelessWidget {
                       );
                     },
                   ),
-                ),
+          ),
           orElse: () => const SizedBox.shrink(),
         );
       },
